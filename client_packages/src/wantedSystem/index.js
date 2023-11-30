@@ -23,13 +23,23 @@ mp.events.add("render", () => {
         const wantedLvl = player.getVariable("WANTED_STARS");
         
         if (wantedLvl == 5) {
-            mp.blips.new(1, player.position, {
-                name: "Wanted player"
-            });
-
+            if (player.trackBlip == undefined) 
+            {
+                let blip = mp.blips.new(1, player.position, {
+                    name: "Wanted player"
+                });
+    
+                player.trackBlip = blip;
+            }
+            else 
+                player.trackBlip.setCoords(player.position);
+            
             return;
         }
         
+        if (player.trackBlip != undefined)
+            player.trackBlip = undefined;
+
         const playerPositions = localplayer.position;
         const targetPos = player.position;
 

@@ -20,12 +20,20 @@ mp.events.add("render", () => {
             return;
         }
         
+        const wantedLvl = player.getVariable("WANTED_STARS");
+        
+        if (wantedLvl == 5) {
+            mp.blips.new(1, player.position, {
+                name: "Wanted player"
+            });
+
+            return;
+        }
+        
         const playerPositions = localplayer.position;
         const targetPos = player.position;
 
         const distance = mp.game.gameplay.getDistanceBetweenCoords(playerPositions.x, playerPositions.y, playerPositions.z, targetPos.x, targetPos.y, targetPos.z, true);
-        
-        const wantedLvl = player.getVariable("WANTED_STARS");
 
         if (distance <= 100 && wantedLvl == 4)
             mp.game.graphics.notify("~b~ Wanted player in 100 meters");

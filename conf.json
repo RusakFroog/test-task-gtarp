@@ -1,0 +1,17 @@
+{
+  "maxplayers": 100,
+  "name": "TEST",
+  "gamemode": "freeroam",
+  "stream-distance": 500.0,
+  "announce": false,
+  "csharp": "enabled",
+  "port": 22005,
+  "voice-chat": true,
+  "voice-chat-sample-rate": 48000,
+  "multiper": 1,
+  "whitelist_on": "false",
+  "api-threading-debugging": false,
+  "drugfarm.controlFamily": "1",
+  "debug.savesafe": true,
+  "allow-cef-debugging": true
+}
